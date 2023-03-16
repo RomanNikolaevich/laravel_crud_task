@@ -27,8 +27,13 @@
 
                 </td>
                 <td>
-                    <a href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="{{route('users.destroy',$user->id)}}" class="btn btn-sm btn-danger">Delete</a>
+
+                    <form method="post" action="{{route('users.destroy', $user)}}">
+                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

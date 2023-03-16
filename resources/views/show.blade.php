@@ -20,8 +20,12 @@
     </div>
     <div class="row mt-3 mb-3">
         <div class="col">
-            <a href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
-            <a href="{{route('users.destroy',$user->id)}}" class="btn btn-sm btn-danger">Delete</a>
+            <form method="post" action="{{route('users.destroy', $user)}}">
+                <a href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
         </div>
     </div>
 
