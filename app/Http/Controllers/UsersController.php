@@ -6,7 +6,9 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class UsersController extends Controller
 {
@@ -34,10 +36,16 @@ class UsersController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->only(['name', 'email']));
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -66,10 +74,17 @@ class UsersController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param User    $user
+     *
+     * @return RedirectResponse
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->only(['name', 'email']));
+
+        return redirect()->route('users.index');
     }
 
     /**
