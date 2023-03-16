@@ -33,7 +33,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <button type="submit" class="btn btn-success">Create</button>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
         </div>
 

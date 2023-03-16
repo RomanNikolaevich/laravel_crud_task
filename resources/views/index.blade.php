@@ -19,8 +19,13 @@
         @foreach($users as $user)
             <tr>
                 <th scope="row">{{$user->id}}</th>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
+                <td>
+                   <a href="{{ route('users.show', $user) }}">{{$user->name}}</a>
+                </td>
+                <td>
+                    <a href="{{ route('users.show', $user) }}">{{$user->email}}</a>
+
+                </td>
                 <td>
                     <a href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
                     <a href="{{route('users.destroy',$user->id)}}" class="btn btn-sm btn-danger">Delete</a>
