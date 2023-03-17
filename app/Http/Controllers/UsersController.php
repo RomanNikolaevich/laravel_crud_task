@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
@@ -45,6 +46,8 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         User::create($request->only(['name', 'email']));
+
+        Session::flash('success', 'User '. $request->name . ' created successfully');
 
         return redirect()->route('users.index');
     }
@@ -85,6 +88,8 @@ class UsersController extends Controller
     {
         $user->update($request->only(['name', 'email']));
 
+        Session::flash('success', 'User '. $user->name . ' updated successfully');
+
         return redirect()->route('users.index');
     }
 
@@ -94,6 +99,8 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        Session::flash('danger', 'User '. $user->name . ' deleted successfully');
 
         return redirect()->route('users.index');
     }

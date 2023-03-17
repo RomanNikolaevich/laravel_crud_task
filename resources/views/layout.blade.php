@@ -75,6 +75,17 @@
 <div class="container">
     <h1>@yield('title')</h1>
     <main>
+        @if(Session::has('danger'))
+            <div class="alert alert-danger">
+                {{ Session::get('danger') }}
+            </div>
+        @endif
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+
         @yield('content')
     </main>
 
