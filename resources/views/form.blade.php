@@ -22,13 +22,19 @@
         <div class="row">
             <div class="col">
                 <input name="name"
-                       value="{{ isset($user) ? $user->name : '' }}"
+                       value="{{ old('name', isset($user) ? $user->name : '')  }}"
                        type="text" class="form-control" placeholder="Name" aria-label="name">
+                @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col">
                 <input name="email"
-                       value="{{ isset($user) ? $user->email : '' }}"
+                       value="{{ old('email', isset($user) ? $user->email : '')  }}"
                        type="text" class="form-control" placeholder="Email" aria-label="email">
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="row mt-3">
