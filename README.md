@@ -6,7 +6,7 @@ Database: MySQL. Server: Nginx. The frontend is implemented using [Bootstrap v 5
 
 ## INSTALLATION
 - PreInstall composer, docker.
-- git clone //copy the project to your desired folder
+- git clone https://github.com/RomanNikolaevich/laravel_crud_task //copy the project to your desired folder
 - docker-compose up -d //docker startup
 - php artisan serve //starting the server
 - php artisan migrate --seed //filling the table with test data
