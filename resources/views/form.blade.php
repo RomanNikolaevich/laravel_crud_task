@@ -16,9 +16,9 @@
             action="{{ route('users.store') }}">
         @endif
         @csrf
-            @isset($user)
-                @method('PUT')
-            @endisset
+        @isset($user)
+            @method('PUT')
+        @endisset
         <div class="row">
             <div class="col">
                 <input name="name"
